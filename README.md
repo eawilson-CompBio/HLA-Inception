@@ -99,5 +99,8 @@ Usage of ./HLA-Inception_pred:
 ``` shell
 cd test
 ../HLA-Inception_pred -a A_02:01 -i SARS_CoV_2.fasta -o test.out
-
+```
+Remove duplicate peptides and print results to console
+``` shell
+cat test.out | awk '!a[$1]++'
 ```
