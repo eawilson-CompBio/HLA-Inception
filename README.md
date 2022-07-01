@@ -11,8 +11,7 @@ A repository for predicting MHC-I peptides using HLA-Inception
 2. install git using homebrew
 
 ```shell
-brew install git
-		
+brew install git		
 ```
    
 3. install [Go](https://go.dev/doc/install)
@@ -36,17 +35,38 @@ sudo apt install git-all
 git clone git@github.com:eawilson-CompBio/HLA-Inception.git
 ```
 
-2. Build HLA inception
+2. go to peptide prediction directory
+```shell
+cd HLA-Inception
+cd HLA-Inception_pred/
+```
+
+3. Build HLA-Inception peptide prediction algorithm
 
 ``` shell
-cd HLA-Inception
-go build scripts/
+go build scripts/HLA-Inception_pred.go
 ```
+
+4. uncompress data files 
+
+``` shell
+cd data
+tar -xzvf LO_matrices.tgz 
+tar -xvzf dist_cutoffs.tgz
+cd ..
+```
+
+5. set data path to files (change the path to the location of the data directory)
+
+``` shell
+export HI_PRED_DATA=path/to/data/directory
+```
+
 
 ## Using HLA-Inception to predict peptides
 
 ``` shell
-./HLA-Inception_pred -t -p 
+./HLA-Inception_pred -[flags] 
 ```
 
 option list
@@ -72,12 +92,12 @@ Usage of ./HLA-Inception_pred:
         length correction weights (default "length_weights.txt")
 ```
 
+* some of the functionality is still be updated. Only use this for prediction of 9mers for the time being.
+
 ## Testing Installation
 
 ``` shell
 cd test
-../HLA-Inception_pred 
-
-diff new_pred example | wc -l
+../HLA-Inception_pred -a A_02:01 -i SARS_CoV_2.fasta -o test.out
 
 ```
