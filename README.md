@@ -43,7 +43,7 @@ cd HLA-Inception
 go build scripts/
 ```
 
-## Prediction from protein fasta
+## Using HLA-Inception to predict peptides
 
 ``` shell
 ./HLA-Inception_pred -t -p 
@@ -51,7 +51,7 @@ go build scripts/
 
 option list
 ``` shell
-Usage of ./predict_peptidesHLA-Inception_pred:
+Usage of ./HLA-Inception_pred:
   -P int
         input file type (1: peptides ; 0: fasta) default: 0
   -a string
@@ -72,3 +72,12 @@ Usage of ./predict_peptidesHLA-Inception_pred:
         length correction weights (default "length_weights.txt")
 ```
 
+## Testing Installation
+
+``` shell
+cd test
+../HLA-Inception_pred 
+
+diff new_pred example | wc -l
+
+```
