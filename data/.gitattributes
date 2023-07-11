@@ -1,0 +1,4 @@
+Allele_List.txt filter=lfs diff=lfs merge=lfs -text
+DefaultLengthWeights.txt filter=lfs diff=lfs merge=lfs -text
+Dist.json.tgz filter=lfs diff=lfs merge=lfs -text
+LO.json.tgz filter=lfs diff=lfs merge=lfs -text
