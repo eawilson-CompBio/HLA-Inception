@@ -369,7 +369,7 @@ func score_peptide(peptide string, motif_mat [9]map[string]interface{}, allele s
 
 	pep_len := len(peptide)
 	len_weight := strconv.Itoa(pep_len)
-	if pep_len < 9 {
+	if pep_len == 8 {
 		out := 0.00
 		for i, j := range motif_mat {
 			if i <= 6 {
@@ -379,13 +379,16 @@ func score_peptide(peptide string, motif_mat [9]map[string]interface{}, allele s
 				} else {
 
 					num, _ := j[peptide[i:next]].(float64)
-					out += num
+					if i == 6 {
+						out += num * 2
+					} else {
+						out += num
+					}
 				}
 			} else if i == 8 {
 				if CheckNonStandard(peptide[7:8]) {
 					out += 0.00
 				} else {
-
 					num, _ := j[peptide[7:8]].(float64)
 					out += num
 				}
@@ -565,8 +568,9 @@ func main() {
 	allelePtr := flag.String("a", "A_02:01", "target MHC-I allele for prediction")
 	FilePtr := flag.String("o", "output.txt", "output file for prediction")
 	PeptidePtr := flag.Int("P", 0, "input file type (1: peptides ; 0: fasta) default: 0")
+	MotifMatrixPtr := flag.String("m", "LO.json", "motif matrix file")
 	flag.Parse()
-	LO_matrix_data := os.Getenv("HI_PRED_PATH") + "/data/LO.json"
+	LO_matrix_data := os.Getenv("HI_PRED_PATH") + "/data/" + *MotifMatrixPtr
 	LO_dist_data := os.Getenv("HI_PRED_PATH") + "/data/Dist.json"
 
 	// check the LenPtr flag to make sure it is a valid length and

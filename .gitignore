@@ -3,3 +3,10 @@ Dist.json
 LO.json
 Allele_List.txt
 hla-inception
+data/LO_exp.json
+data/NoOvelap_LO_matrix.json
+data/NoOver.json
+data/RF_convert.json
+data/RF.json
+src/misc/ConvertLOMatrix.r
+tests/*.out
