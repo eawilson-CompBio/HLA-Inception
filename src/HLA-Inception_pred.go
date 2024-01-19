@@ -372,16 +372,17 @@ func score_peptide(peptide string, motif_mat [9]map[string]interface{}, allele s
 	if pep_len == 8 {
 		out := 0.00
 		for i, j := range motif_mat {
-			if i <= 6 {
+			if i <= 7 {
 				next := i + 1
 				if CheckNonStandard(peptide[i:next]) {
 					out += 0.00
 				} else {
 
-					num, _ := j[peptide[i:next]].(float64)
-					if i == 6 {
-						out += num * 2
+					if i == 7 {
+						num, _ := j[peptide[6:7]].(float64)
+						out += num
 					} else {
+						num, _ := j[peptide[i:next]].(float64)
 						out += num
 					}
 				}
