@@ -45,7 +45,9 @@ tar -xzf data/LO.json.tgz -C data/
 
 # compile golang binaray 
 echo "compile golang binary"
-go build -o hla-inception src/HLA-inception_pred.go
+go mod init HLA-Inception
+go build -o hla-inception ./src/
+
 
 # run tests
 
