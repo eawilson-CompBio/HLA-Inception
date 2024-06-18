@@ -1,6 +1,7 @@
 helperFunctions/
 Dist.json
 LO.json
+go.mod
 Allele_List.txt
 hla-inception
 data/LO_exp.json
