@@ -12,6 +12,7 @@ A repository for predicting MHC-I peptides using HLA-Inception
 
 ```shell
 brew install git
+brew install git-lfs
 ```
 
 3. install [Go](https://go.dev/doc/install)
