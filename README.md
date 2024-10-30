@@ -22,7 +22,8 @@ brew install git-lfs
 1. install git
 
 ``` shell
-sudo apt install git-all
+sudo apt install git-all git-lfs
+
 ```
 
 2. install [Go](https://go.dev/doc/install)
