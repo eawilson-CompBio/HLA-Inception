@@ -34,7 +34,7 @@ sudo apt install git-all git-lfs
 1. Clone github repository
 
 ```shell
-git clone git@github.com:eawilson-CompBio/HLA-Inception.git
+git lfs clone git@github.com:eawilson-CompBio/HLA-Inception.git
 ```
 
 2. go to peptide prediction directory
